@@ -1,0 +1,16 @@
+This is Khan Academy's fork of uap-python a Python user agent parser.
+It has its own submodule uap-core which references the actual uap-core library,
+we need this reference to get the regexes - which are actually used to parse
+the user agents and updated to catch new user agents for new products. Since
+this regexes may be updated, we need to update this library to reflect the changes.
+
+
+To update:
+1. cd uap-core && git pull origin master && cd ..
+# This will pull the remote core module that has the most recent regexes for parsing
+2. python update.py
+# This will copy the regexes to the directory with the code
+3. git commit -a -m "update the regexes to the most recent version"
+4. git push
+# This will record your changes to the "third party" library
+5. Update and Deploy the submodule like you would always
